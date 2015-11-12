@@ -45,7 +45,7 @@ var tooltip = d3.tip()
 
 //The url's to the data displayed
 data_url= '../data/return_yugene_graph_data_ENSG00000204531.tsv';
-data_url= '../data/return_yugene_filtered_graph_dataENSG00000111640.tsv';
+data_url= '../data/return_yugene_filtered_graph_dataENSG00000111640.tsv'; // for 3000,5003,5008 datasets filtered
 
 /* Extracting the data from the csv files for use in the graph
  * Also sets relevent options based on the data passed in (for example
