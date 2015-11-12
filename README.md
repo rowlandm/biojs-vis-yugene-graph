@@ -1,17 +1,17 @@
-# biojs-vis-scatter-plot
+# biojs-vis-yugene-graph
 
-[![NPM version](http://img.shields.io/npm/v/biojs-vis-rohart-msc-test.svg)](https://www.npmjs.org/package/biojs-vis-scatter-plot) 
+[![NPM version](http://img.shields.io/npm/v/biojs-vis-rohart-msc-test.svg)](https://www.npmjs.org/package/biojs-vis-yugene-graph) 
 
 > BioJS component to provide a scatter-plot graphing tool hosted in Stemformatics
 
 ## Getting Started
-Install the module with: `npm install biojs-vis-scatter-plot`
+Install the module with: `npm install biojs-vis-yugene-graph`
 
-for more details of the options, see the working example [here](http://biojs.io/d/biojs-vis-scatter-plot)  and the example code [here](https://github.com/ArianeMora/bio-js-scatter-plot/blob/master/examples/simple.js)
+for more details of the options, see the working example [here](http://biojs.io/d/biojs-vis-yugene-graph)  and the example code [here](https://github.com/rowlandm/biojs-vis-yugene-graph/blob/master/examples/normal_oct4_human.js)
 
 
 ```javascript
-var app = require('biojs-vis-scatter-plot');
+var app = require('biojs-vis-yugene-graph');
 
 var options = {
    background_colour: "white",
@@ -25,7 +25,7 @@ var options = {
    error_dividor:100,//100 means error bars will not show when error < 1% value 
    //the graph size can be set to small (to fit multiple grpahs to a page)
    graph_size: "",
-   height: {small: 400, large: 1500},
+   height: {small: 400, large: 1500}
    //horizontal lines takes a name, colour and the yvalue. If no colour is given one is chosen at random
    horizontal_lines: [["Detection Threshold", "green", 5], ["Median", , 8.93]],
    horizontal_line_value_column: 'value',
@@ -105,7 +105,7 @@ If you have any problem or suggestion please open an issue [here](https://github
 ## License 
 This software is licensed under the Apache 2 license, quoted below.
 
-Copyright (c) 2015, ArianeMora
+Copyright (c) 2015, rowlandm
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not
 use this file except in compliance with the License. You may obtain a copy of
