@@ -37,15 +37,15 @@ var tooltip = d3.tip()
         upr = round_to_two_decimal_places(d.Expression_Value + d.Standard_Deviation);
         temp = 
             "Sample: " + d.sample_id +"<br/>"+
+            "Probe: " + d.probe_id +"<br/>"+
             "Dataset: " + d.ds_id +"<br/>"+
-            "Log2 Expression: " + Expression_Value +"<br/>"
+            "YuGene Value: " + Expression_Value +"<br/>"
            // "MSC predicted "+msc_call+"/"+total+" iterations<br/>"
         return temp; 
     });
 
 //The url's to the data displayed
-data_url= '../data/return_yugene_graph_data_ENSG00000204531.tsv';
-data_url= '../data/return_yugene_filtered_graph_dataENSG00000111640.tsv'; // for 3000,5003,5008 datasets filtered
+data_url= '../data/return_yugene_filtered_graph_data_ENSG00000204531_filtered.tsv'; 
 
 /* Extracting the data from the csv files for use in the graph
  * Also sets relevent options based on the data passed in (for example
@@ -66,13 +66,13 @@ d3.tsv(data_url,function (error,data){
         
     });
 
-    title = "Yugene Graph";
+    title = "POU5F1 Human Yugene Graph - showing datasets 5003,5008, and 3000";
     subtitle1 = "Subtitle"
     subtitle2 = "Subtitle"
     target = rootDiv;
 
-    width = 1000;
-    
+    width = 1500;
+    ds_id_array =  [5008,3000,5003];
 
     //The main options for the graph
     var options = {
@@ -80,15 +80,16 @@ d3.tsv(data_url,function (error,data){
         background_colour: "white",
         background_stroke_colour:  "black",
         background_stroke_width:  "6px",
-        circle_radius: {small: 2, large: 3.5},  // for the scatter points
+        circle_radius: {small: 4, large: 3.5},  // for the scatter points
         hover_circle_radius: 10,
         colour: colours,
+        ds_id_array: ds_id_array,
         data: data,
         domain_colours : ["#FFFFFF","#7f3f98"],
         error_bar_width:5,
         error_dividor:100,//100 means error bars will not show when error < 1% value 
         graph_size: "small",
-        height: {small: 400, large: 1500},
+        height: {small: 800, large: 1500},
         //horizontal lines takes a name, colour and the yvalue. If no colour is given one is chosen at random
         horizontal_lines: [["Detection Threshold", "green", 5], ["Median", , 8.93]],
         horizontal_line_value_column: 'value',
@@ -119,12 +120,12 @@ d3.tsv(data_url,function (error,data){
         tooltip: tooltip, // using d3-tips
         //tooltip1: tooltip1, // using d3-tips unique_id: "chip_id",
         watermark:"http://www1.stemformatics.org/img/logo.gif",
-        width: {small: 500, large: width}, // suggest 50 per sample
+        width: {small: 1500, large: width}, // suggest 50 per sample
         x_axis_text_angle:-45, 
         x_axis_title: "Samples",
         x_column: 'x_position',
         x_middle_title: 500,
-        y_axis_title: "Log2 Expression",
+        y_axis_title: "YuGene Value",
         y_column: 'yugene_value'
     }
 
