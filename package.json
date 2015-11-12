@@ -47,10 +47,10 @@
     ],
     "css":["/css/biojs-vis-yugene-graph.css"],
     "snippets": ["examples"],
-    "first": "many_sample_types_large",
-    "second": "many_sample_types_small",
-    "third": "single_probe_large",
-    "fourth": "three_probes_small"
+    "first": "filtered_clec4e_mouse",
+    "second": "filtered_gapdh_human",
+    "third": "filtered_oct4_human",
+    "fourth": "normal_oct4_human"
 
    }, 
   "keywords": ["d3","graph","stemformatics","biojs","YuGene"]
