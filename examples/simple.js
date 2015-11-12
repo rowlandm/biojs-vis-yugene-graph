@@ -36,9 +36,9 @@ var tooltip = d3.tip()
         lwr = round_to_two_decimal_places(d.Expression_Value - d.Standard_Deviation);
         upr = round_to_two_decimal_places(d.Expression_Value + d.Standard_Deviation);
         temp = 
-            "Probe: " + d.Probe + "<br/>" +
-            "Sample: " + d.Sample_ID +"<br/>"+
-            "Log2 Expression: " + Expression_Value + " [" + lwr + ";" + upr +"]<br/>"
+            "Sample: " + d.sample_id +"<br/>"+
+            "Dataset: " + d.ds_id +"<br/>"+
+            "Log2 Expression: " + Expression_Value +"<br/>"
            // "MSC predicted "+msc_call+"/"+total+" iterations<br/>"
         return temp; 
     });

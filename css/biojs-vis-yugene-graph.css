@@ -120,7 +120,7 @@ text.title {
 path { 
     fill:none;  
     stroke: black;
-    stroke-width:4;
+    stroke-width:1;
 }
 
 rect {
