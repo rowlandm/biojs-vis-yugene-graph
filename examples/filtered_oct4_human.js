@@ -71,7 +71,7 @@ d3.tsv(data_url,function (error,data){
     subtitle2 = "Subtitle"
     target = rootDiv;
 
-    width = 1500;
+    width = 800;
     ds_id_array =  [5008,3000,5003];
 
     //The main options for the graph
@@ -89,7 +89,7 @@ d3.tsv(data_url,function (error,data){
         error_bar_width:5,
         error_dividor:100,//100 means error bars will not show when error < 1% value 
         graph_size: "small",
-        height: {small: 800, large: 1500},
+        height: {small: 600, large: 800},
         //horizontal lines takes a name, colour and the yvalue. If no colour is given one is chosen at random
         horizontal_lines: [["Detection Threshold", "green", 5], ["Median", , 8.93]],
         horizontal_line_value_column: 'value',
@@ -120,7 +120,7 @@ d3.tsv(data_url,function (error,data){
         tooltip: tooltip, // using d3-tips
         //tooltip1: tooltip1, // using d3-tips unique_id: "chip_id",
         watermark:"http://www1.stemformatics.org/img/logo.gif",
-        width: {small: 1500, large: width}, // suggest 50 per sample
+        width: {small: 800, large: width}, // suggest 50 per sample
         x_axis_text_angle:-45, 
         x_axis_title: "Samples",
         x_column: 'x_position',

@@ -1,23 +1,23 @@
 {
   "name": "biojs-vis-yugene-graph",
-  "description": "BioJS component to provide a scatter plot graph hosted in Stemformatics",
-  "version": "0.0.8",
-  "homepage": "https://github.com/ArianeMora/bio-js-scatter-plot",
+  "description": "BioJS component to provide a YuGene graph hosted in Stemformatics",
+  "version": "0.0.2",
+  "homepage": "https://github.com/rowlandm/biojs-vis-yugene-graph",
   "author": {
-    "name": "ArianeMora",
-    "email": "ariane.mora@uq.net.au"
+    "name": "Rowland Mosbergen",
+    "email": "rowland.mosbergen@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ArianeMora/bio-js-scatter-plot.git"
+    "url": "https://github.com/rowlandm/biojs-vis-yugene-graph.git"
   },
   "bugs": {
-    "url": "https://github.com/ArianeMora/bio-js-scatter-plot/issues"
+    "url": "https://github.com/rowlandm/biojs-vis-yugene-graph/issues"
   },
   "licenses": [
     {
       "type": "Apache 2",
-      "url": "https://github.com/ArianeMora/bio-js-scatter-plot/blob/master/LICENSE"
+      "url": "https://github.com/rowlandm/biojs-vis-yugene-graph/blob/master/LICENSE"
     }
   ],
   "main": "lib/index.js",
@@ -50,10 +50,8 @@
     "first": "many_sample_types_large",
     "second": "many_sample_types_small",
     "third": "single_probe_large",
-    "fourth": "single_probe_small",
-    "fith": "three_probes_large",
-    "sixth": "three_probes_small"
+    "fourth": "three_probes_small"
 
    }, 
-  "keywords": ["d3","graph","stemformatics","biojs","Scatter","Plot"]
+  "keywords": ["d3","graph","stemformatics","biojs","YuGene"]
 }
