@@ -44,93 +44,35 @@ var tooltip = d3.tip()
     });
 
 //The url's to the data displayed
-data_url= '../data/ds_id_5003_scatter_gata3.tsv';
-//data_url = '../data/ds_id_2000_scatter_stat1.tsv';
-//data_url = '../data/ds_id_2000_scatter_pdgfd.tsv';
+data_url= '../data/return_yugene_graph_data_ENSG00000204531.tsv';
+data_url= '../data/return_yugene_filtered_graph_dataENSG00000111640.tsv';
 
 /* Extracting the data from the csv files for use in the graph
  * Also sets relevent options based on the data passed in (for example
  * calculating the min and max values of the graph */
 d3.tsv(data_url,function (error,data){
-    max = 0; 
+
+    max = 1;  // YuGene is between 1 and 0
     min = 0;
     number_of_increments = 0;
     count = 0; 
-    //make an array to store the number of probes for the legend
-    probes_types = new Array();
-    probes = new Array();
-    probe_count = 0;
-    //Saving the sample types and corrosponding id to use when 
-    //itterating over for the hovering over the ample types and altering the scatter
-    //points for that sample type
-    sample_types = new Array();
-    sample_type_array = new Array();
-    sample_type_count = 0;
-    j = 0;
-    //need to put in the number of colours that are being used (so that it
-    //can reiitterate over them again if necesary
-    number_of_colours = 39;
-    colour_count = 0;
+
     data.forEach(function(d){
         // ths + on the front converts it into a number just in case
-        d.Expression_Value = +d.Expression_Value;
-        d.Standard_Deviation = +d.Standard_Deviation;
-        d.Probe = d.Probe;
-        //calculates the max value of the graph otherwise sets it to 0
-        //calculates the min value and uses this if max < 0 otherwise sets to 0
-        //increment valye = max - min.
-        if(d.Expression_Value + d.Standard_Deviation > max){
-            max = d.Expression_Value + d.Standard_Deviation;
-        }
-        if(d.Expression_Value - d.Standard_Deviation < min){
-            min = d.Expression_Value - d.Standard_Deviation;
-        }
-        if($.inArray(d.Probe, probes_types) == -1){
-            probes_types.push(d.Probe);
-            probe_count++;
-        }
-        if($.inArray(d.Sample_Type, sample_type_array) == -1) {
-            //Gives each sample type a unique id so that they can be grouped 
-            //And highlighted together
-            sample_type_array.push(d.Sample_Type);
-            sample_types[d.Sample_Type] = sample_type_count;
-            j++;
-            sample_type_count ++;
-        }
-        count++;
-
+        d.chip_type = +d.chip_type;
+        d.ds_id = +d.ds_id;
+        d.x_position = +d.x_position;
+        d.yugene_value = +d.yugene_value;
+        
     });
-    //USed to set up the probes and their corrosponding 
-    //colours
-    for(i = 0; i < probe_count; i++){
-        probes[i] = [];
-        probes[i][0] = probes_types[i];
-      //  colour_count++;
-        if(colour_count == number_of_colours){
-            colour_count = 0;
-        }
-        probes[i][1] = colours[colour_count];
-        colour_count++;
-    }
-    //for an increment per number = max - min
-    number_of_increments = max - min;
-    //turn number of increments into a whole number
-    number_of_increments |= 0;
-    probes = probes;
-    sample_types = sample_types;
-    probe_count = probe_count;
-    title = "Scatter Plot";
+
+    title = "Yugene Graph";
     subtitle1 = "Subtitle"
     subtitle2 = "Subtitle"
     target = rootDiv;
 
-    // can always use just a straight value, but it's nicer when you calculate
-    // based off the number of samples that you have
-    width = data.length*1;
-    horizontal_grid_lines = width;
-    if (width < 1000){
-        width = 1000;
-    }
+    width = 1000;
+    
 
     //The main options for the graph
     var options = {
@@ -164,12 +106,6 @@ d3.tsv(data_url,function (error,data){
         //2 is the chosen padding. On either side there will be padding = to the interval between the points
         //1 gives 1/2 the interval on either side etc.
         padding: 2,
-        probe_count: probe_count,
-        probes: probes,
-        //sample type order indicates whether or not the samplese need to be represented in a specific order
-        //if no order is given then the order from the data set is taken
-        sample_type_order:"none",// "DermalFibroblast, hONS", // "BM MSC,BM erythropoietic cells CD235A+,BM granulopoietic cells CD11B+,BM hematopoietic cells CD45+,Developing cortex neural progenitor cells,Ventral midbrain neural progenitor cells,Olfactory lamina propria derived stem cells",
-        sample_types: sample_types,
         show_horizontal_line_labels: true,
         subtitle1: subtitle1,
         subtitle2: subtitle2,
@@ -186,10 +122,10 @@ d3.tsv(data_url,function (error,data){
         width: {small: 500, large: width}, // suggest 50 per sample
         x_axis_text_angle:-45, 
         x_axis_title: "Samples",
-        x_column: 'Sample_ID',
+        x_column: 'x_position',
         x_middle_title: 500,
         y_axis_title: "Log2 Expression",
-        y_column: 'Expression_Value'
+        y_column: 'yugene_value'
     }
 
     var instance = new app(options);
