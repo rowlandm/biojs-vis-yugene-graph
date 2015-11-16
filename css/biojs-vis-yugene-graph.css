@@ -140,13 +140,13 @@ g.tick text {
 svg {
   font: 10px sans-serif;
 }
-
 .selecting circle {
   fill-opacity: .2;
 }
 
-.selecting circle.selected {
-  stroke: #f00;
+circle.selected {
+    stroke: #f00;
+    fill-opacity: 1; 
 }
 
 .resize path {
