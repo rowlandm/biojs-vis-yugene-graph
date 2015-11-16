@@ -1,7 +1,7 @@
 {
   "name": "biojs-vis-yugene-graph",
   "description": "BioJS component to provide a YuGene graph hosted in Stemformatics",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/rowlandm/biojs-vis-yugene-graph",
   "author": {
     "name": "Rowland Mosbergen",
