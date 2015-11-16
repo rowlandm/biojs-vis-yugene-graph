@@ -141,7 +141,8 @@ svg {
   font: 10px sans-serif;
 }
 .selecting circle {
-  fill-opacity: .2;
+    fill-opacity: .5;
+    
 }
 
 circle.selected {
