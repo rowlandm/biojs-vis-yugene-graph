@@ -46,6 +46,10 @@ var tooltip = d3.tip()
 //The url's to the data displayed
 data_url= '../data/return_yugene_graph_data_ENSG00000204531.tsv';
 
+
+$('body').append('<div id="values"></div>');
+
+
 /* Extracting the data from the csv files for use in the graph
  * Also sets relevent options based on the data passed in (for example
  * calculating the min and max values of the graph */
