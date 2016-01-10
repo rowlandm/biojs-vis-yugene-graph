@@ -71,6 +71,10 @@ d3.tsv(data_url,function (error,data){
     subtitle2 = "Subtitle"
     target = rootDiv;
 
+
+    $('body').append('<div id="yugene_value_start"></div>');
+    $('body').append('<div id="yugene_value_end"></div>');
+
     width = 600;
     ds_id_array =  [5008,3000,5003];
     ds_id_array =  [5008];
@@ -82,30 +86,18 @@ d3.tsv(data_url,function (error,data){
         background_colour: "white",
         background_stroke_colour:  "black",
         background_stroke_width:  "6px",
-        circle_radius: {small: 4, large: 3.5},  // for the scatter points
+        circle_radius: 3.5,  // for the scatter points
+        colour:colours,
         hover_circle_radius: 10,
-        colour: colours,
         ds_id_array: ds_id_array,
         data: data,
-        domain_colours : ["#FFFFFF","#7f3f98"],
-        error_bar_width:5,
-        error_dividor:100,//100 means error bars will not show when error < 1% value 
-        graph_size: "small",
-        height: {small: 400, large: 600},
-        //horizontal lines takes a name, colour and the yvalue. If no colour is given one is chosen at random
-        horizontal_lines: [["Detection Threshold", "green", 5], ["Median", , 8.93]],
-        horizontal_line_value_column: 'value',
-        //to have horizontal grid lines = width (to span accross the grid), otherwise = 0
-        horizontal_grid_lines: width,
+        height: 400,
         legend_class: "legend",
         increment: number_of_increments,
         legend_range: [0,100],
         line_stroke_width: "2px",
         margin_legend: width - 190,
-        margin:{top: 180, left:200, bottom: 530, right: 300},
-        margin_small:{top: 40, left: 40, bottom: 40, right: 80},
-        //default number of colours is 39 (before it reitterates over it again)
-        number_of_colours: 39,
+        margin:{top: 100, left:70, bottom: 50, right: 30},
         //2 is the chosen padding. On either side there will be padding = to the interval between the points
         //1 gives 1/2 the interval on either side etc.
         padding: 2,
@@ -114,15 +106,13 @@ d3.tsv(data_url,function (error,data){
         subtitle2: subtitle2,
         stroke_width:"3px",
         target: target,
-        text_size: {small: "12px", large: "20px"},
-        title_text_size: {small: "12px", large: "30px"},
         title: title,
         title_class: "title",
         tip: tip,//second tip to just display the sample type
         tooltip: tooltip, // using d3-tips
         //tooltip1: tooltip1, // using d3-tips unique_id: "chip_id",
-        watermark:"http://www1.stemformatics.org/img/logo.gif",
-        width: {small: 600, large: width}, // suggest 50 per sample
+        watermark:"http://www.stemformatics.org/img/logo.gif",
+        width: 800,
         x_axis_text_angle:-45, 
         x_axis_title: "Samples",
         x_column: 'x_position',
