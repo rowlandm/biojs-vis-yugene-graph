@@ -91,6 +91,8 @@ d3.tsv(data_url,function (error,data){
         hover_circle_radius: 10,
         ds_id_array: ds_id_array,
         data: data,
+        fill_area_colour: "green",
+        setup_brush: false, 
         height: 400,
         legend_class: "legend",
         increment: number_of_increments,

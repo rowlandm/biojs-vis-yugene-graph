@@ -84,6 +84,8 @@ d3.tsv(data_url,function (error,data){
         circle_radius: 3.5,  // for the scatter points
         colour:colours,
         hover_circle_radius: 10,
+        fill_area_colour: "green",
+        setup_brush: false, 
         ds_id_array: ds_id_array,
         data: data,
         height: 400,
